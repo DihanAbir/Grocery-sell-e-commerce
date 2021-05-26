@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import React from "react";
 import { Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";

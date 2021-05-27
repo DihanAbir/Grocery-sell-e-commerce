@@ -1,13 +1,24 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Image, ListGroup, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
+import CustomeLoader from "../Component/CustomeLoader";
 import Review from "../Component/Review";
-import products from "../products";
+// import products from "../products";
 
 function ProductScreen() {
   const { id } = useParams();
 
-  const product = products.find((pro) => pro._id === id);
+  const [product, setProduct] = useState([]);
+  useEffect(() => {
+    const fetchedProduct = async () => {
+      const { data } = await axios.get(`/api/products/${id}`);
+      setProduct(data);
+    };
+    fetchedProduct();
+  }, [product, setProduct]);
+
+  // const product = products.find((pro) => pro._id === id);
   return (
     <div>
       <p>product secren</p>
@@ -16,9 +27,21 @@ function ProductScreen() {
       </Link>
 
       <Row>
+        {/* {product.image ? (
+          "loading/...."
+        ) : ( */}
         <Col md={6}>
-          <Image src={product.image} alt={product.name} />
+          <Image
+            style={{
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
+            }}
+            src={product.image}
+            alt={product.name}
+          />
         </Col>
+        {/* } */}
         <Col md={3}>
           <ListGroup variant="flush">
             <ListGroup.Item>

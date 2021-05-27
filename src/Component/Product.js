@@ -7,7 +7,11 @@ function Product({ product }) {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant="top" />
+        <Card.Img
+          style={{ height: "200px", objectFit: "cover" }}
+          src={product.image}
+          variant="top"
+        />
         <p>{product.name}</p>
       </Link>
       <Card.Body>

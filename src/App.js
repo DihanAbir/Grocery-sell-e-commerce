@@ -9,6 +9,7 @@ import HomeScreen from "./screen/HomeScreen";
 import ProductScreen from "./screen/ProductScreen";
 import { Container } from "react-bootstrap";
 import store from "./store";
+import CartScreen from "./screen/CartScreen";
 
 function App() {
   return (
@@ -16,10 +17,11 @@ function App() {
       <div className="App">
         <Router>
           <Header />
-          <main style={{ minHeight: "80vh" }}>
+          <main style={{ padding: "2rem", minHeight: "80vh" }}>
             <Container>
               <Route exact path="/" component={HomeScreen} />
               <Route exact path="/product/:id" component={ProductScreen} />
+              <Route exact path="/cart/:id" component={CartScreen} />
             </Container>
           </main>
           <Footer />

@@ -10,6 +10,13 @@ import ProductScreen from "./screen/ProductScreen";
 import { Container } from "react-bootstrap";
 import store from "./store";
 import CartScreen from "./screen/CartScreen";
+import LoginScreen from "./screen/LoginScreen";
+import RegisterScreen from "./screen/RegisterScreen";
+import ProfileScreen from "./screen/ProfileScreen";
+import ShippingScreen from "./screen/ShippingScreen";
+import PaymentScreen from "./screen/PaymentScreen";
+import PlaceorderScreen from "./screen/PlaceorderScreen";
+import OrderScreen from "./screen/OrderScreen";
 
 function App() {
   return (
@@ -20,8 +27,15 @@ function App() {
           <main style={{ padding: "2rem", minHeight: "80vh" }}>
             <Container>
               <Route exact path="/" component={HomeScreen} />
+              <Route exact path="/login" component={LoginScreen} />
+              <Route exact path="/register" component={RegisterScreen} />
+              <Route exact path="/profile" component={ProfileScreen} />
+              <Route exact path="/payment" component={PaymentScreen} />
+              <Route exact path="/placeorder" component={PlaceorderScreen} />
+              <Route exact path="/order/:id" component={OrderScreen} />
+              <Route exact path="/shipping" component={ShippingScreen} />
               <Route exact path="/product/:id" component={ProductScreen} />
-              <Route exact path="/cart/:id" component={CartScreen} />
+              <Route exact path="/cart/:id?" component={CartScreen} />
             </Container>
           </main>
           <Footer />
